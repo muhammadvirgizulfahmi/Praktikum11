@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkaran</title>
+</head>
+<body>
+    <h1>Hitung Luas & Keliling Lingkaran</h1>
+
+    <label for="jari2">Nilai Jari-Jari: </label>
+    <input onchange="hitungLingkaran()" type="number" id="jari2">
+    <button onclick="hitungLingkaran()">Hitung</button>
+
+    <hr>
+    <p>Luas Lingkaran = <span id="hasilLuas"></span> </p>
+    <p>Keliling Lingkaran = <span id="hasilKeliling"></span> </p>
+    <script>
+        function hitungLingkaran(){
+            let jari2 = document.getElementById("jari2").value;
+            const phi = 3.14;
+
+            //rumus luas lingkaran
+            let hasilLuas = phi * jari2 * jari2;
+            let hasilLuas2 = document.getElementById("hasilLuas");
+            hasilLuas2.innerHTML = hasilLuas;
+            console.log("Luas Lingkaran = "+hasilLuas);
+            //document.getElementById("hasilLuas").innerHTML = hasilLuas;
+            
+            //rumus keliling lingkaran
+            let hasilKeliling = 2 * phi * jari2;
+            let keliling = document.getElementById("hasilKeliling");
+            keliling.innerHTML = hasilKeliling;
+            console.log("Keliling Lingkaran = "+hasilKeliling);
+            //document.getElementById("hasilKeliling").innerHTML = hasilKeliling;
+        }
+    </script>
+</body>
+</html>

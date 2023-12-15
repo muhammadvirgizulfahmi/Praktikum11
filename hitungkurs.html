@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Kurs</title>
+</head>
+<body>
+    <center>
+    <h1>Hitung Kurs</h1>
+    <select id="select" style="display: block;" onchange="pilih()">
+        <option hidden>Pilih Kurs</option>
+        <option value="dollar">Dollar ke Rupiah</option>
+        <option value="rupiah">Rupiah ke Dollar</option>
+    </select>
+    <br>
+    <label for="uang"> <span id="mataUang"></span> </label>
+    <span id="duit"></span>
+    <span id="batas"></span>
+    <span id="mataUang2"></span>
+    <span id="hasil"></span>
+
+    </center>
+    <script>
+        function pilih(){
+            let select = document.getElementById("select");
+            let mataUang = document.getElementById("mataUang");
+            let jumlahUang = document.getElementById("duit");
+            let mataUang2 = document.getElementById("mataUang2");
+            let pembatas = document.getElementById("batas");
+            if (select.value == "dollar") {
+                mataUang.innerHTML = "Dollar";
+                jumlahUang.innerHTML = '<input type="number" id="uang" onchange="hasil()">';
+                pembatas.innerHTML = '<\hr>';
+                mataUang2.innerHTML = "Rupiah";
+                document.getElementById("hasil").innerHTML = '<input type="text" id="hasilKonvert" readonly>';
+            }
+            else {
+                mataUang.innerHTML = "Rupiah";
+                jumlahUang.innerHTML = '<input type="number" id="uang" onchange="hasil()">';
+                pembatas.innerHTML = '<\hr>';
+                mataUang2.innerHTML = "Dollar";
+                document.getElementById("hasil").innerHTML = '<input type="text" id="hasilKonvert" readonly>';
+            }
+        }
+        function hasil(){
+            let Uang = document.getElementById("uang").value;
+            if (select.value == "dollar"){
+                let hasilKonvert = Uang * 15502.15;
+                document.getElementById("hasilKonvert").value = hasilKonvert.toLocaleString();
+            }
+            else {
+                let hasilKonvert = Uang / 15502.15;
+                document.getElementById("hasilKonvert").value = hasilKonvert.toLocaleString();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Jumlah 2 Bilangan</title>
+</head>
+<body>
+    <center>
+        <h1>Hitung Jumlah 2 Bilangan</h1>
+        <input type="number" id="bilangan1" onchange="hasil()">
+        <p>+</p>
+        <input type="number" id="bilangan2" onchange="hasil()">
+        <p>=</p>
+        <input type="number" id="hasil" readonly>
+    </center>
+    <script>
+        function hasil() {
+            let bilanganPertama = document.getElementById("bilangan1").value;
+            let bilanganKedua = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = Number(bilanganPertama) + Number(bilanganKedua);
+        }
+    </script>
+</body>
+</html>

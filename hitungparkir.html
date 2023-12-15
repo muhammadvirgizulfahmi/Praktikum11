@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Biaya Parkir</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            width: 60%;
+            text-align: left;
+        }
+        .jam th, td {
+            width: 10%;
+        }
+        input[type=number] {
+            width: 94%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Hitung Biaya Parkir</h1>
+    <table>
+        <tr>
+            <th class="jam">Jam Masuk</th>
+            <th class="jam">Jam Keluar</th>
+            <th>Lama</th>
+            <th>Keluaran Biaya</th>
+        </tr>
+        <tr>
+            <td class="jam">
+                <input type="number" id="jamMasuk" onchange="parkir()">
+            </td>
+            <td class="jam">
+                <input type="number" id="jamKeluar" onchange="parkir()">
+            </td>
+            <td>
+                <span id="waktu"></span>
+            </td>
+            <td>
+                <span id="biaya"></span>
+            </td>
+        </tr>
+    </table>
+    </center>
+    <script>
+        function parkir(){
+            let waktuMasuk = document.getElementById("jamMasuk").value;
+            let waktuKeluar = document.getElementById("jamKeluar").value;
+            let waktuParkir = waktuKeluar - waktuMasuk;
+            document.getElementById("waktu").innerHTML = waktuParkir + " jam";
+            if (waktuParkir == 0){
+                document.getElementById("biaya").innerHTML = "Rp 0";
+            }
+            else if (waktuParkir < 0){
+                document.getElementById("biaya").innerHTML = "Error";
+            }
+            else {
+                document.getElementById("biaya").innerHTML = "Rp " + (1000 + (1000 * waktuParkir)); 
+            }
+        }
+    </script>
+</body>
+</html>
